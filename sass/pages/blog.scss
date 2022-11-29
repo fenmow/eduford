@@ -1,0 +1,45 @@
+@include preset;
+
+.container7 {
+  @include background2("../imgs/background.jpg");
+}
+
+.container8 {
+  .row {
+    .col-md-8 {
+      p {
+        font-size: 15px;
+      }
+      form {
+        border: 2px solid rgb(128, 128, 128, .2);
+        input {
+          display: block;
+          width: 100%;
+          border: none;
+          outline: none;
+          background-color: rgb(128, 128, 128, .2);
+        }
+        textarea {
+          width: 100%;
+          outline: none;
+          background-color: rgb(128, 128, 128, .2);
+          border: none;
+        }
+        @include button;
+        @include button-light;
+      }
+    }
+
+    .col-md-4 {
+      .title {
+        width: 100%;
+        background-color: $secondary-red;
+      }
+      ul {
+        li {
+          @include flex(space-between, center);
+        }
+      }
+    }
+  }
+}

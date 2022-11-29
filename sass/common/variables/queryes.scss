@@ -1,0 +1,23 @@
+@media screen and (min-width: 571px) {
+  .navbar-mobile {
+    right: -350px !important;
+  }
+} 
+
+@media screen and (max-width: 570px) {
+  .navbar {
+    display: none !important;
+  }
+  .bars {
+    display: flex !important;
+  }
+  .main-title {
+    font-size: 35px !important;
+  }
+
+  .container6-text {
+    h2 {
+      font-size: 22px;
+    }
+  }
+}

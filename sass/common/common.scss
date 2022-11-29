@@ -1,0 +1,241 @@
+@mixin preset {
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+  }
+
+  body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin background($url) {
+  background-image: url($url);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin background2($url) {
+  position: relative;
+  @include background($url);
+  height: 50vh;
+  width: 100%;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, .5);
+  }
+  h1 {
+    z-index: 100;
+  }
+}
+
+@mixin header {
+  .header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    @include flex(space-between, center);
+    height: 100px;
+    padding: 0 calc((100% - 1650px) / 2);
+    .logo {
+      @include flex(center ,center);
+      a {
+        img {
+          width: 150px;
+          margin-left: 7px;
+        }
+      }
+    }
+    .navbar {
+      @include flex(center, center);
+      ul {
+        margin-right: 10px;
+        li {
+          a {
+            position: relative;
+            &:hover {
+              color: white;
+            }
+            &:before {
+              content: "";
+              position: absolute;
+              bottom: -1px;
+              right: 50%;
+              transform: translateX(50%);
+              width: 0px;
+              height: 3px;
+              background-color: $secondary-red;
+              transition: .3s;
+            }
+  
+            &:hover:before {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    .bars {
+      font-size: 23px;
+      cursor: pointer;
+      display: none;
+    }
+  }
+  
+  .navbar-mobile {
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    visibility: hidden;
+    right: -350px;
+    width: 350px;
+    padding: 10px;
+    background-color: $secondary-red;
+    height: 100%;
+    transition: .3s;
+    i {
+      font-size: 22px;
+      color: white;
+      cursor: pointer;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding-top: 45px;
+      padding-left: 30px;
+      li {
+        a {
+          &:hover {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  
+  .show {
+    right: 0px;
+    visibility: visible;
+  }
+}
+
+@mixin button {
+  button {
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 12px 40px;
+    color: white;
+    transition: .5s;
+    position: relative;
+    &:hover {
+      background-color: $secondary-red;
+      border-color: $secondary-red;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 2px;
+      background-color: white;
+      transition: .5s;
+    }
+    &:hover:before {
+      background-color: $secondary-red;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      right: -22px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 2px;
+      background-color: white;
+      transition: .5s;
+    }
+    &:hover:after {
+      background-color: $secondary-red;
+    }
+  }
+}
+
+@mixin button-light {
+  button {
+    color: $secondary-red;
+    border-color: $secondary-red;
+    &:hover {
+      color: white;
+    }
+    &:before {
+      background-color: $secondary-red;
+    }
+    &:after {
+      background-color: $secondary-red;
+    }
+  }
+}
+
+@mixin footer {
+  .footer {
+    p {
+      font-size: 15px;
+      i {
+        color: $secondary-red;
+      }
+    }
+    .links {
+      a {
+        i {
+          color: $secondary-red;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

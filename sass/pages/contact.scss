@@ -1,0 +1,31 @@
+.container7 {
+  @include background2("../imgs/background.jpg");
+}
+
+.container10 {
+  .row {
+    .col-md {
+      .line {
+        i {
+          color: $secondary-red;
+          font-size: 20px;
+          padding-top: 15px;
+        }
+      }
+    } 
+    .form {
+      input {
+        width: 100%;
+        outline: none;
+        border: 2px solid rgb(128, 128, 128, .2);
+      }
+      textarea {
+        width: 100%;
+        outline: none;
+        border: 2px solid rgb(128, 128, 128, .2);
+      }
+      @include button;
+      @include button-light;
+    }
+  }
+}

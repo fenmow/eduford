@@ -1,0 +1,12 @@
+.container7 {
+  @include background2("../imgs/background.jpg");
+}
+
+.container8 {
+  .row {
+    .col-md {
+        @include button;
+        @include button-light;
+    }
+  }
+}
